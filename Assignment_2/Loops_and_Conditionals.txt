@@ -1,0 +1,74 @@
+1. [20 points] Instruction Sets
+
+a. [10] Simple ISA: Write the following program using two different ISAs: Stack and
+Accumulator.
+
+a/(b*c­a) -­ (a+d*e*f)
+
+The source operands and destination operands for these ISAs are
+provided below:
+
+	1. Accumulator:
+	1 address add A acc <­ acc+mem[A]
+	1 + x address addx A acc <­ acc+mem[A+x]
+	Operations: add, sub, mult, div, clear, store(st)
+
+clear
+add b
+mult c
+sub a
+st tmp
+clear
+add a
+div tmp
+st tmp
+clear
+add d
+mult e
+mult f
+add a
+st tmp2
+clear
+add tmp
+sub tmp2
+
+	2. Stack:
+
+	0 address add tos <­ tos + next
+	operations: add, sub, mult, div, push A, pop A
+
+push a
+push b
+push c
+mult
+push a
+sub
+div
+push f
+push e
+mult
+push d
+mult
+push a
+add
+sub
+
+b. [10] MIPS: Encode the following MIPS instructions into binary code.
+
+and $5, $6, $7
+
+and 	$5	$6	$7	
+
+000000 	00110	00111	00101	00000	100100
+
+bne $5, $6, 100
+
+bne	$5	$6	100
+
+000101  00101	00110	0000 0110 0100
+
+Decode the following binary code into MIPS instruction.
+
+101011 00001 00101 0000 0000 0000 1000
+
+sw	$1,	8[$5]
